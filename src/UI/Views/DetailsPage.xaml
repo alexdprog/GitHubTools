@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="GitHubTools.App.Views.DetailsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:res="clr-namespace:GitHubTools.Resources;assembly=GitHubTools.Resources"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewModels="clr-namespace:GitHubTools.App.ViewModels;assembly=GitHubTools.App"
+    Title="{x:Static res:MainResource.DetailTitle}">
+    <Grid
+        Padding="16"
+        ColumnDefinitions="0.3*, 0.7*"
+        HorizontalOptions="Fill"
+        RowDefinitions="23,23,23,23,23"
+        VerticalOptions="Fill">
+        <Label Text="{x:Static res:MainResource.Label}" />
+        <Label Grid.Column="1" Text="{Binding Repository.Name}" />
+
+        <Label Grid.Row="1" Text="{x:Static res:MainResource.Url}" />
+        <Label
+            Grid.Row="1"
+            Grid.Column="1"
+            Text="{Binding Repository.HtmlUrl}" />
+        <Label Grid.Row="2" Text="{x:Static res:MainResource.GitUrl}" />
+        <Label
+            Grid.Row="2"
+            Grid.Column="1"
+            Text="{Binding Repository.GitUrl}" />
+        <Label Grid.Row="3" Text="{x:Static res:MainResource.Created}" />
+        <Label
+            Grid.Row="3"
+            Grid.Column="1"
+            Text="{Binding Repository.CreatedAt}" />
+        <Label Grid.Row="4" Text="{x:Static res:MainResource.Branch}" />
+        <Label
+            Grid.Row="4"
+            Grid.Column="1"
+            Text="{Binding Repository.DefaultBranch}" />
+
+    </Grid>
+</ContentPage>

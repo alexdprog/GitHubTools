@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="GitHubTools.App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:GitHubTools.App.Views"
+    xmlns:res="clr-namespace:GitHubTools.Resources;assembly=GitHubTools.Resources"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="{x:Static res:MainResource.ShowTitle}" Icon="preview.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="{x:Static res:MainResource.Load}" Icon="download.png">
+            <ShellContent ContentTemplate="{DataTemplate local:LoadPage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>

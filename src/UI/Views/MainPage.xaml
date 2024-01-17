@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="GitHubTools.App.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:res="clr-namespace:GitHubTools.Resources;assembly=GitHubTools.Resources"
+    xmlns:viewModels="clr-namespace:GitHubTools.App.ViewModels;assembly=GitHubTools.App"
+    Title="{x:Static res:MainResource.ShowTitle}">
+    <StackLayout
+        Padding="10"
+        HorizontalOptions="Fill"
+        Spacing="10"
+        VerticalOptions="FillAndExpand">
+        <ListView
+            HasUnevenRows="True"
+            ItemsSource="{Binding RepositoryList}"
+            SeparatorColor="Black"
+            SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid
+                            Padding="0,6,0,6"
+                            ColumnDefinitions="0.3*, 0.6*, 100"
+                            RowDefinitions="Auto,Auto, Auto">
+
+                            <Label Text="{x:Static res:MainResource.Label}" />
+                            <Label Grid.Column="1" Text="{Binding Name}" />
+
+                            <Label Grid.Row="1" Text="{x:Static res:MainResource.Url}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="{Binding HtmlUrl}" />
+                            <Button
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainPageViewModel}}, Path=ShowDetailsCommand}"
+                                CommandParameter="{Binding .}"
+                                Text="{x:Static res:MainResource.Detail}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </StackLayout>
+</ContentPage>

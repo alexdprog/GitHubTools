@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GitHubTools.App.Views.LoadPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:GitHubTools.App.Controls;assembly=GitHubTools.App"
+    xmlns:res="clr-namespace:GitHubTools.Resources;assembly=GitHubTools.Resources"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="{x:Static res:MainResource.LoadTitle}">
+    <StackLayout Margin="16">
+        <Label Text="{x:Static res:MainResource.Input}" />
+        <Entry x:Name="EntryWordName" Text="{Binding UserName}" />
+        <HorizontalStackLayout
+            Padding="0,8,0,32"
+            HorizontalOptions="End"
+            Spacing="8">
+            <Button
+                BackgroundColor="Transparent"
+                BorderColor="Gray"
+                BorderWidth="1"
+                Command="{Binding OnClearCommand}"
+                Text="{x:Static res:MainResource.Clear}"
+                TextColor="{StaticResource Black}"
+                WidthRequest="120" />
+            <Button
+                x:Name="ApplyButton"
+                BackgroundColor="{StaticResource Primary}"
+                Command="{Binding OnLoadCommand}"
+                Text="{x:Static res:MainResource.Load}"
+                WidthRequest="120" />
+        </HorizontalStackLayout>
+        <StackLayout Padding="16,0,16,0">
+            <controls:InlineNotification
+                IsVisible="{Binding IsConnectionSuccess}"
+                NotificationType="Success"
+                Text="{Binding Message}" />
+            <controls:InlineNotification
+                IsVisible="{Binding IsConnectionFailure}"
+                NotificationType="Warning"
+                Text="{Binding Message}" />
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>
