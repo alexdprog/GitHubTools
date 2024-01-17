@@ -18,8 +18,8 @@ namespace GitHubTools.CoreApplication.Mappings
             DestinationMemberNamingConvention =new PascalCaseNamingConvention();
             SourceMemberNamingConvention =  new LowerUnderscoreNamingConvention();
 
-            CreateMap<OwnerDto, OwnerDb>();//.ForMember(x=> x.Parent, opt => opt.Ignore());
-            CreateMap<OwnerDb, Owner>();//.ReverseMap().ForMember(x=> x.Parent, opt => opt.Ignore());
+            CreateMap<OwnerDto, OwnerDb>().ForMember(x=> x.repositories, opt => opt.Ignore());
+            CreateMap<OwnerDb, Owner>();
         }
     }
 }
